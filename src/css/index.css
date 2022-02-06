@@ -1,0 +1,50 @@
+/*Metodología BEM*/
+/* Dividir la interfaz en componentes*/
+/*Blocks, Elements, Modifiers*/
+
+body {
+  background-color: #1572a1;
+}
+
+.cuadriculas {
+  display: grid;
+  /* Indicar el numero de columnas */
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main__dark {
+  background-color: #18191a;
+  color: #f2f2f2;
+}
+
+.main__light {
+  background-color: #f2f2f2;
+  color: #18191a;
+}
+
+button {
+  margin: 10px;
+  padding: 5px;
+}
+.page {
+  max-width: 1336px;
+  margin: 0 auto;
+}
+
+.movies {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.movie__img {
+  width: 100%;
+}
+
+.movie__title {
+  font-size: 2rem;
+}
+
+.movie__starts {
+  font-size: 3rem;
+}
