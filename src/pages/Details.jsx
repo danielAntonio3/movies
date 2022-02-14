@@ -7,7 +7,7 @@ import { moviesContext } from './../context/MoviesContext';
 export default function Details() {
   const { id } = useParams();
 
-  const { movies, setMovies, reviews, setReviews } = useContext(moviesContext);
+  const { movies, addReview, reviews } = useContext(moviesContext);
 
   const comentario = useRef();
   const rating = useRef();
@@ -20,17 +20,10 @@ export default function Details() {
   }
 
   // Función para agregar un comentario
-  const addReview = () => {
-    let valueComment = comentario.current.value;
+  const addReviews = () => {
+    let comment = comentario.current.value;
     let starts = rating.current.value;
-    movie.starts += parseInt(starts);
-    movie.numberOfReviews++;
-
-    setMovies([...movies]);
-    setReviews([
-      ...reviews,
-      { id: reviews.length, idMovie: movie.id, comment: valueComment },
-    ]);
+    addReview(movie, starts, comment);
   };
 
   return (
@@ -45,11 +38,11 @@ export default function Details() {
           <option value={4}>4</option>
           <option value={5}>5</option>
         </select>
-        <button onClick={addReview}>Agregar comentario</button>
+        <button onClick={addReviews}>Agregar comentario</button>
       </div>
-      {reviews.map((review, index) => {
+      {reviews.map((review) => {
         return review.idMovie === id ? (
-          <p key={index}>{review.comment}</p>
+          <p key={review.id}>{review.comment}</p>
         ) : undefined;
       })}
     </>

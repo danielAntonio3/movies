@@ -2,6 +2,8 @@
 /* Dividir la interfaz en componentes*/
 /*Blocks, Elements, Modifiers*/
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 body {
   background-color: #1572a1;
 }
@@ -27,24 +29,67 @@ button {
   padding: 5px;
 }
 .page {
-  max-width: 1336px;
+  max-width: 1280px;
+  width: 80%;
   margin: 0 auto;
 }
 
 .movies {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
+.movie {
+  max-width: 200px;
+}
 .movie__img {
   width: 100%;
 }
 
 .movie__title {
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+  color: #111827;
+  font-family: 'DM Sans', sans-serif;
 }
-
+a {
+  font-weight: bold;
+  font-size: 18px;
+  color: #111827;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+}
+.movie__description {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  color: #9ca3af;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  line-height: 16px;
+}
+.movie__starts span {
+  font-size: 1.5rem;
+  background: -webkit-linear-gradient(0deg, white 50%, white 0%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.movie__starts ul {
+  width: 100%;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
 .movie__starts {
-  font-size: 3rem;
+  margin-top: 12px;
+  font-size: 1rem;
 }
