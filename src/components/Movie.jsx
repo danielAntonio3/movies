@@ -2,16 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Movie({ movie }) {
-  const numStart = movie.starts / movie.numberOfReviews;
+  // console.log(movie.rating);
+  const numStart = movie.rating / movie.numberOfReviews;
   return (
     <article className="movie">
       <img className="movie__img" src={movie.img} alt={movie.title} />
-      <Link to={`/details/${movie.id}`}>
+      <Link to={`/details/${movie._id}`}>
         <h2 className="movie__title">{movie.title}</h2>
       </Link>
       <div className="movie__starts">
         <ul id="ulStars">
-          {numStart}
+          {isNaN(numStart) ? 0 : numStart}
           <li>
             <span>&#9733;</span>
           </li>
@@ -29,7 +30,7 @@ export default function Movie({ movie }) {
           </li>
         </ul>
       </div>
-      <p className="movie__description">{movie.description}</p>
+      {/* <p className="movie__description">{movie.description}</p> */}
     </article>
   );
 }

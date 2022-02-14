@@ -6,7 +6,7 @@ export default function Movies({ movies }) {
     <section className="movies">
       {/* Bloque contenedor*/}
       {movies.map((movie) => (
-        <Movie key={movie.id} movie={movie} />
+        <Movie key={movie._id} movie={movie} />
       ))}
     </section>
   );

@@ -1,13 +1,11 @@
 // Mockup (Como algo de prueba)
-const mockup = [
+/* const mockup = [
   {
     id: '1',
     title: 'Ejemplo 1',
     img: 'https://picsum.photos/200/300/?random',
     starts: 0,
     numberOfReviews: 0,
-    description: `Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-       Lorem Ipsum ha sido el texto de relleno`,
   },
   {
     id: '2',
@@ -15,8 +13,6 @@ const mockup = [
     img: 'https://picsum.photos/200/300/?random',
     starts: 0,
     numberOfReviews: 0,
-    description: `Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-       Lorem Ipsum ha sido el texto de relleno`,
   },
   {
     id: '3',
@@ -24,8 +20,6 @@ const mockup = [
     img: 'https://picsum.photos/200/300/?random',
     starts: 0,
     numberOfReviews: 0,
-    description: `Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-       Lorem Ipsum ha sido el texto de relleno`,
   },
   {
     id: '4',
@@ -33,13 +27,11 @@ const mockup = [
     img: 'https://picsum.photos/200/300/?random',
     starts: 0,
     numberOfReviews: 0,
-    description: `Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
-       Lorem Ipsum ha sido el texto de relleno`,
   },
-];
+]; */
 
 export const moviesInitialState = {
-  movies: mockup,
+  movies: [],
 };
 
 export default function moviesReduces(state, action) {
@@ -50,6 +42,9 @@ export default function moviesReduces(state, action) {
       movie.starts += parseInt(starts);
       movie.numberOfReviews++;
       newState = { movies: [...state.movies] };
+      break;
+    case 'addMovies':
+      newState = { movies: [...action.movies] };
       break;
     default:
       newState = { movies: [...state.movies] };

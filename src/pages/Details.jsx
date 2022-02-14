@@ -12,7 +12,7 @@ export default function Details() {
   const comentario = useRef();
   const rating = useRef();
 
-  const movie = movies.filter((movie) => movie.id === id)[0];
+  const movie = movies.filter((movie) => movie._id === id)[0];
 
   // Por si la ruta no existe
   if (!movie) {

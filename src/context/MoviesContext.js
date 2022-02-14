@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useReducer, useEffect } from 'react';
 
 import moviesReduces, { moviesInitialState } from './../reducers/moviesReducer';
 import reviewsReducer, {
@@ -13,11 +13,20 @@ export default function MoviesContext({ children }) {
     reviewsInitialState
   );
 
+  useEffect(() => {
+    fetch('https://backendtzuzulcode.wl.r.appspot.com/movies')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setMovies({ type: 'addMovies', movies: data });
+      });
+  }, []);
+
   const addReview = (movie, starts, comment) => {
     setMovies({ type: 'addStarts', movie, starts });
     dispatchReviews({
       type: 'addReview',
-      idMovie: movie.id,
+      idMovie: movie._id,
       comment,
     });
   };
