@@ -13,14 +13,14 @@ export default function MoviesContext({ children }) {
     reviewsInitialState
   );
 
-  useEffect(() => {
-    fetch('https://backendtzuzulcode.wl.r.appspot.com/movies')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setMovies({ type: 'addMovies', movies: data });
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://backendtzuzulcode.wl.r.appspot.com/movies')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setMovies({ type: 'addMovies', movies: data });
+  //     });
+  // }, []);
 
   const addReview = (movie, starts, comment) => {
     setMovies({ type: 'addStarts', movie, starts });
