@@ -4,15 +4,15 @@ import './css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import MoviesContext from './context/MoviesContext';
-// import UserContext from './context/UserContext';
+import UserContext from './context/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <UserContext> */}
-    <MoviesContext>
-      <App />
-    </MoviesContext>
-    {/* </UserContext> */}
+    <UserContext>
+      <MoviesContext>
+        <App />
+      </MoviesContext>
+    </UserContext>
   </React.StrictMode>,
   document.getElementById('root')
 );

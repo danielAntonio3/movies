@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { userContext } from './../context/UserContext';
 
 export default function Login() {
+  const { user, setUser } = useContext(userContext);
+
   const signIn = (event) => {
     event.preventDefault();
     const { email, password } = event.target;
@@ -17,10 +20,20 @@ export default function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        if (data.success !== true) {
+          alert(data.message);
+        } else {
+          console.log(data);
+          setUser({ loggedIn: true, name: data.data.firstName });
+          window.location.replace('http://localhost:3000/');
+        }
+      })
+      .catch((error) => {
+        console.log('errors', error);
       });
   };
 
+  // return user.loggedIn ?
   return (
     <div className="page">
       <form onSubmit={signIn}>
@@ -29,5 +42,7 @@ export default function Login() {
         <button>Enviar</button>
       </form>
     </div>
+    // ) : (
+    //   window.location.replace('http://localhost:3000/')
   );
 }
