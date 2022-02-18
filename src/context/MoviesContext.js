@@ -1,9 +1,11 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer, useEffect, useState } from 'react';
 
 import moviesReduces, { moviesInitialState } from './../reducers/moviesReducer';
+
 import reviewsReducer, {
   reviewsInitialState,
 } from './../reducers/reviewsReducer';
+
 export const moviesContext = createContext();
 
 export default function MoviesContext({ children }) {
@@ -13,12 +15,18 @@ export default function MoviesContext({ children }) {
     reviewsInitialState
   );
 
+  const [loading, setLoading] = useState(true);
+
   // useEffect(() => {
   //   fetch('https://backendtzuzulcode.wl.r.appspot.com/movies')
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);
   //       setMovies({ type: 'addMovies', movies: data });
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setLoading(false);
   //     });
   // }, []);
 
@@ -33,7 +41,12 @@ export default function MoviesContext({ children }) {
 
   return (
     <moviesContext.Provider
-      value={{ movies: movies.movies, addReview, reviews: reviews.reviews }}
+      value={{
+        loading,
+        movies: movies.movies,
+        addReview,
+        reviews: reviews.reviews,
+      }}
     >
       {children}
     </moviesContext.Provider>

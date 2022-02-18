@@ -28,6 +28,34 @@ const mockup = [
     starts: 0,
     numberOfReviews: 0,
   },
+  {
+    _id: '5',
+    title: 'Ejemplo 5',
+    img: 'https://picsum.photos/200/300/?random',
+    starts: 0,
+    numberOfReviews: 0,
+  },
+  {
+    _id: '6',
+    title: 'Ejemplo 6',
+    img: 'https://picsum.photos/200/300/?random',
+    starts: 0,
+    numberOfReviews: 0,
+  },
+  {
+    _id: '7',
+    title: 'Ejemplo 7',
+    img: 'https://picsum.photos/200/300/?random',
+    starts: 0,
+    numberOfReviews: 0,
+  },
+  {
+    _id: '8',
+    title: 'Ejemplo 8',
+    img: 'https://picsum.photos/200/300/?random',
+    starts: 0,
+    numberOfReviews: 0,
+  },
 ];
 
 export const moviesInitialState = {
