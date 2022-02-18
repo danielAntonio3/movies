@@ -20,7 +20,7 @@ export default function Movie({ movie }) {
     <article className="movie">
       <img className="movie__img" src={movie.img} alt={movie.title} />
       <Link to={`/details/${movie._id}`}>
-        <h2 className="movie__title">{movie.title}</h2>
+        <h2 className="movie__title">Titulo: {movie.title}</h2>
       </Link>
       <div className="movie__starts">
         <ul id="ulStars">{isNaN(numStart) ? 0 : stars}</ul>
